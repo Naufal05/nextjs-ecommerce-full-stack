@@ -1,4 +1,8 @@
+"use client";
+
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ReactNode, type ComponentProps } from "react";
 
 export function Nav({ children }: { children: ReactNode }) {
@@ -10,5 +14,16 @@ export function Nav({ children }: { children: ReactNode }) {
 }
 
 export function NavLink(props: Omit<ComponentProps<typeof Link>, "className">) {
-  return <Link {...props} />;
+  const pathName = usePathname();
+  return (
+    <Link
+      {...props}
+      className={cn(
+        `p-4 hover:bg-secondary hover:text-secondary-foreground
+        focus-visible:bg-secondary focus-within:text-secondary-foreground
+        `,
+        pathName === props.href && "bg-background text-foreground",
+      )}
+    />
+  );
 }
