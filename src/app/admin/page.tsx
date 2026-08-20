@@ -1,10 +1,23 @@
+import db from "@/src/db/db";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/src/components/ui/card";
+
+async function getSalesDate() {
+  const data = await db.order.aggregate({
+    _sum: { pricePaidInCents: true },
+    _count: true,
+  });
+
+  return {
+    amount: (data._sum.pricePaidInCents || 0) / 100,
+    numberOfSales: data._count,
+  };
+}
 
 export default function AdminDashboard() {
   return (

@@ -1,4 +1,4 @@
-import { Nav, NavLink } from "@/components/ui/Nav";
+import { Nav, NavLink } from "../../components/ui/Nav";
 
 export default function AdminLayout({ children }: LayoutProps<"/">) {
   return (

@@ -1,0 +1,14 @@
+//-------------NEXT-JS ECOMMERCE---------------//
+
+//PRISMA IMPLEMENTATION
+https://www.prisma.io/docs/prisma-orm/quickstart/sqlite
+
+
+//
+setup models for ecomerce site
+1. Customers
+2. sales
+3. products
+4. downloading products (digital product)
+5. Shadcn-ui installation
+
